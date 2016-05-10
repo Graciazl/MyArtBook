@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>MyArtBook</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <link rel="stylesheet" href="art.css">
+</head>
+<body ng-app="artBook">
+
+<div class="info" ng-controller="bookController">
+    <h1>{{title}}</h1>
+    <div class="booklist" ng-repeat="list in books">
+        <div>
+            <img ng-src="{{list.cover}}">
+            <p>{{list.name}}</p>
+            <p>{{list.price|currency:"￥"}}</p>
+            <p>{{list.datepub|date:"MMM,yyyy"}}</p>
+        </div>
+        <div>
+            <button ng-click="addLike($index)">Like: {{list.like}}</button>
+            <button ng-click="addDislike($index)">Dislike: {{list.dislike}}</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script src="art.js"></script>
+</body>
+</html>
